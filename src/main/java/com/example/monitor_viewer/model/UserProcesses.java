@@ -1,0 +1,37 @@
+package com.example.monitor_viewer.model;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "user_processes") // Maps to the MySQL table
+public class UserProcesses {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
+
+    @Column(name = "user", nullable = false)
+    private String user; // Stores the username
+
+    @Column(name = "process_name", nullable = false)
+    private String processName; // Stores the process name
+
+    // Constructors
+    public UserProcesses() {}
+
+    public UserProcesses(String user, String processName) {
+        this.user = user;
+        this.processName = processName;
+    }
+
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getUser() { return user; }
+    public void setUser(String user) { this.user = user; }
+
+    public String getProcessName() { return processName; }
+    public void setProcessName(String processName) { this.processName = processName; }
+}
