@@ -28,7 +28,7 @@ public class UserProcessesService {
         return userProcessesRepository.save(process);
     }
 
-    // Delete all processes for a specific user before inserting new ones
+    // Delete all processes for a specific user before inserting new onesz
     public void clearAndSaveUserProcesses(String user, List<String> processes) {
         userProcessesRepository.deleteByUser(user); // Clear existing processes
 

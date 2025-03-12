@@ -1,39 +1,45 @@
 package com.example.monitor_viewer.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "user_processes") // Maps to the MySQL table
-public class UserProcesses {
+@Table(name = "user_processes")
+public class ProcessEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
     @Column(name = "user", nullable = false)
-    private String user; // Stores the username
+    private String user;
 
     @Column(name = "process_name", nullable = false)
-    private String processName; // Stores the process name
+    private String processName;
 
-    @Column(name = "cpu_usage", nullable = false)
-    private double cpuUsage; // Stores CPU usage percentage
+    @Column(name = "cpu_usage")
+    private double cpuUsage;
 
-    @Column(name = "memory_usage", nullable = false)
-    private double memoryUsage; // Stores memory usage in MB
+    @Column(name = "memory_usage")
+    private double memoryUsage;
 
-    // Constructors
-    public UserProcesses() {}
+    @Column(name = "last_updated", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    private LocalDateTime lastUpdated = LocalDateTime.now();
 
-    public UserProcesses(String user, String processName, double cpuUsage, double memoryUsage) {
+    // ✅ **Constructor with all parameters**
+    public ProcessEntity(String user, String processName, double cpuUsage, double memoryUsage) {
         this.user = user;
         this.processName = processName;
         this.cpuUsage = cpuUsage;
         this.memoryUsage = memoryUsage;
+        this.lastUpdated = LocalDateTime.now();
     }
 
-    // Getters and Setters
+    // ✅ **No-argument constructor (required by JPA)**
+    public ProcessEntity() {
+    }
+
+    // ✅ **Getters and Setters**
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -48,4 +54,7 @@ public class UserProcesses {
 
     public double getMemoryUsage() { return memoryUsage; }
     public void setMemoryUsage(double memoryUsage) { this.memoryUsage = memoryUsage; }
+
+    public LocalDateTime getLastUpdated() { return lastUpdated; }
+    public void setLastUpdated(LocalDateTime lastUpdated) { this.lastUpdated = lastUpdated; }
 }
