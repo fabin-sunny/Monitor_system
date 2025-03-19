@@ -28,12 +28,17 @@ public class UserProcessesService {
         return userProcessesRepository.save(process);
     }
 
-    // Delete all processes for a specific user before inserting new onesz
-    public void clearAndSaveUserProcesses(String user, List<String> processes) {
+    // Delete all processes for a user before inserting new ones with updated CPU & Memory usage
+    public void clearAndSaveUserProcesses(String user, List<UserProcesses> processes) {
         userProcessesRepository.deleteByUser(user); // Clear existing processes
 
-        for (String processName : processes) {
-            UserProcesses newProcess = new UserProcesses(user, processName);
+        for (UserProcesses process : processes) {
+            UserProcesses newProcess = new UserProcesses(
+                user,
+                process.getProcessName(),
+                process.getCpuUsage(),
+                process.getMemoryUsage()
+            );
             userProcessesRepository.save(newProcess);
         }
     }

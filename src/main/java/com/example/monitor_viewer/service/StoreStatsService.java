@@ -27,6 +27,9 @@ public class StoreStatsService {
         stats.setDiskTotal(systemStatsDTO.getDiskTotal());
         stats.setLastUpdated(LocalDateTime.now());
 
+        // Set system status to "active" when data is received
+        stats.setStatus("active");
+
         systemStatsRepository.save(stats);
     }
 }

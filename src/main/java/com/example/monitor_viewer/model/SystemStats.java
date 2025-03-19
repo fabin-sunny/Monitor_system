@@ -12,10 +12,10 @@ public class SystemStats {
     private Long id;
 
     @Column(name = "user", nullable = false)
-    private String user; // Stores the username
+    private String user; 
 
     @Column(name = "ip_address", nullable = false)
-    private String ipAddress; // Stores the system's IP address
+    private String ipAddress; 
 
     @Column(name = "cpu_usage")
     private double cpuUsage;
@@ -31,6 +31,9 @@ public class SystemStats {
 
     @Column(name = "disk_total")
     private double diskTotal;
+
+    @Column(name = "status") 
+    private String status;
 
     // Getters and Setters
     public Long getId() { return id; }
@@ -56,4 +59,7 @@ public class SystemStats {
 
     public double getDiskTotal() { return diskTotal; }
     public void setDiskTotal(double diskTotal) { this.diskTotal = diskTotal; }
+
+    public String getStatus() { return status; } 
+    public void setStatus(String status) { this.status = status; }
 }

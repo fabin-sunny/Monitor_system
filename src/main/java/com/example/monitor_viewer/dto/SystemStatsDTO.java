@@ -1,5 +1,7 @@
 package com.example.monitor_viewer.dto;
 
+import java.time.LocalDateTime;
+
 public class SystemStatsDTO {
     private String user;
     private String ipAddress;
@@ -8,6 +10,8 @@ public class SystemStatsDTO {
     private double memoryTotal;
     private double diskUsed;
     private double diskTotal;
+    private LocalDateTime lastUpdated; 
+    private String status; 
 
     // Getters and Setters
     public String getUser() { return user; }
@@ -30,4 +34,10 @@ public class SystemStatsDTO {
 
     public double getDiskTotal() { return diskTotal; }
     public void setDiskTotal(double diskTotal) { this.diskTotal = diskTotal; }
+
+    public LocalDateTime getLastUpdated() { return lastUpdated; }
+    public void setLastUpdated(LocalDateTime lastUpdated) { this.lastUpdated = lastUpdated; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 }

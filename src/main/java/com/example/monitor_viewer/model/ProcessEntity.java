@@ -26,7 +26,7 @@ public class ProcessEntity {
     @Column(name = "last_updated", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private LocalDateTime lastUpdated = LocalDateTime.now();
 
-    // ✅ **Constructor with all parameters**
+    //Constructor with all parameters
     public ProcessEntity(String user, String processName, double cpuUsage, double memoryUsage) {
         this.user = user;
         this.processName = processName;
@@ -35,11 +35,11 @@ public class ProcessEntity {
         this.lastUpdated = LocalDateTime.now();
     }
 
-    // ✅ **No-argument constructor (required by JPA)**
+    // No-argument constructor
     public ProcessEntity() {
     }
 
-    // ✅ **Getters and Setters**
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

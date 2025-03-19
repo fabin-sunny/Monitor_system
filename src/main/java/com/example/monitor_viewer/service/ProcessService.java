@@ -1,7 +1,6 @@
 package com.example.monitor_viewer.service;
 
 import com.example.monitor_viewer.dto.ProcessDTO;
-import com.example.monitor_viewer.dto.ProcessRequestDTO;
 import com.example.monitor_viewer.model.ProcessEntity;
 import com.example.monitor_viewer.repository.ProcessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class ProcessService {
         for (ProcessEntity existingProcess : existingProcesses) {
             if (!newProcessNames.contains(existingProcess.getProcessName())) {
                 processRepository.delete(existingProcess);
-                System.out.println("Deleted terminated process: " + existingProcess.getProcessName());
+                //System.out.println("Deleted terminated process: " + existingProcess.getProcessName());
             }
         }
 

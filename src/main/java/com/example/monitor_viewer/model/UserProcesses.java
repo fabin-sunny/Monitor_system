@@ -25,6 +25,8 @@ public class UserProcesses {
 
     // Constructors
     public UserProcesses() {}
+    
+    
 
     public UserProcesses(String user, String processName, double cpuUsage, double memoryUsage) {
         this.user = user;

@@ -35,6 +35,9 @@ public class StoreStats {
     @Column(name = "last_updated", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private LocalDateTime lastUpdated = LocalDateTime.now();
 
+    @Column(name = "status", nullable = false)
+    private String status = "inactive"; // Default to inactive
+
     // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -62,4 +65,7 @@ public class StoreStats {
 
     public LocalDateTime getLastUpdated() { return lastUpdated; }
     public void setLastUpdated(LocalDateTime lastUpdated) { this.lastUpdated = lastUpdated; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 }
